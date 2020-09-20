@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if prot.count > 0 %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Інструмент</th>
+                  <th scope="col">Опис</th>
+                  <th scope="col">Зміна</th>
+                  <th scope="col">Дата</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for val in prot %}
+                    <tr>
+                      <th scope="row">{{ val.id }}</th>
+                      <td>{{ val.instrument }}</td>
+                      <td>{{ val.theme }}</td>
+                      <td>{{ val.shift }}</td>
+                      <td>{{ val.date }}</td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% else %}
+<h2 style="width: 100%; text-align: center; padding: 20px;">У базі відсутні дані. Перейдіть у вкладку "НОВИЙ ЗАПИС"</h2>
+{% endif %}
+{% endblock %}
